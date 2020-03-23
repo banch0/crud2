@@ -1,0 +1,121 @@
+### REGISTER =================================
+POST  http://localhost:9999/api/register
+Content-Type: application/json
+Accept: application/json
+
+{
+    "Login": "somebody",
+    "Password": "secretpass"
+}
+
+### LOGIN ===================================
+POST http://localhost:9999/api/tokens
+Content-Type: application/json
+Accept: application/json
+
+{
+    "Login": "somebody",
+    "Password": "secretpass"
+}
+
+### JWT ACCSESS 
+GET http://localhost:9999/api/users/me
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6InNvbWVib2R5Iiwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJleHAiOjE1ODUwMzA2MTN9.PIObttNMX47yKzBLNbAvmhugm2IGJ4FlA4UpigfvUMI
+
+### ADMIN ACCSESS AUTH
+GET http://localhost:9999/api/admin
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6InR5bGVyMyIsInJvbGVzIjpbIlJPTEVfQURNSU4iLCJST0xFX1VTRVIiXSwiZXhwIjoxNTg0OTk3MDE3fQ.US0pyezLZk_UVSAlg0LX6z1Be5DPkQoschjHHdbYQkg
+
+### AGENTS =======================================
+###
+GET http://localhost:9999/api/agent/a28ad555-78e6-49c3-8226-7f8b6c4389fb
+
+###
+POST http://localhost:9999/api/agents
+
+###
+DELETE http://localhost:9999/api/agent/a28ad555-78e6-49c3-8226-7f8b6c4389fb
+
+###
+PUT http://localhost:9999/api/agent/a28ad555-78e6-49c3-8226-7f8b6c4389fb
+Content-Type: application/json
+Accept: application/json
+
+{
+    "Name": "Tyler",
+    "Login": "tyler",
+    "Email": "mail@mail.ru"
+}
+
+### OWNERS =====================================
+GET http://localhost:9999/api/owners
+
+### 
+GET http://localhost:9999/api/owner/bcb3cd55-72ed-4b89-b8c5-b9a2c9583273
+
+### 
+DELETE  http://localhost:9999/api/owner/bcb3cd55-72ed-4b89-b8c5-b9a2c9583273
+
+### 
+PUT  http://localhost:9999/api/owner/bcb3cd55-72ed-4b89-b8c5-b9a2c9583273
+Content-Type: application/json
+Accept: application/json
+
+{
+    "Name": "Marla",
+    "Phone": "009888888",
+    "Lastname":"Singer"
+}
+
+### 
+POST  http://localhost:9999/api/owner/0
+Content-Type: application/json
+Accept: application/json
+
+{
+    "Title": "Bob",
+    "Phone": "009888888",
+    "Lastname":"Paulson",
+    "Email": "list@list.ru"
+}
+
+### HOUSES =============================
+GET http://localhost:9999/api/house/a2e89733-788d-4dbc-beaf-adce21376551
+
+### House by category
+GET http://localhost:9999/api/house/category/rent
+
+### get all houses
+POST http://localhost:9999/api/houses
+
+### adding new house
+POST  http://localhost:9999/api/house
+Content-Type: application/json
+Accept: application/json
+
+{
+    "Title": "Air Port Plaza",
+    "Price": 550000,
+    "Description": "Elite houses complex"
+}
+
+###
+PUT http://localhost:9999/api/house/a2e89733-788d-4dbc-beaf-adce21376551
+Content-Type: application/json
+Accept: application/json
+
+{
+    "Title": "Somoni",
+    "Price": 150030,
+    "Description": "Elite appartment new the center"
+}
+
+###
+DELETE http://localhost:9999/api/house/a2e89733-788d-4dbc-beaf-adce21376551
+
+# curl -i -X POST -H "Content-Type: multipart/form-data" 
+# -F "files=@test.mp3" -F "files=@image.jpg" -F "userid=1234" http://mysuperserver/media/upload/

@@ -1,0 +1,25 @@
+version: '3'
+services:
+  db:
+    image: postgres:9.5-alpine
+    ports:
+      - 5434:5432
+    environment:
+      - POSTGRES_PASSWORD=pass
+      - POSTGRES_USER=user
+      - POSTGRES_DB=app
+  web:
+    build: .
+    command: go run main.go
+    volumes:
+      - .:/cmd
+    ports:
+      - "9898:9999"
+    depends_on:
+      - db
+  client:
+    image: nginx:latest
+    ports:
+        - 9898:80
+    volumes:
+        - ./src:/usr/share/nginx/html

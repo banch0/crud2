@@ -1,0 +1,5 @@
+.vscode/
+.idea/
+vim_key
+config.json
+app.log
